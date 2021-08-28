@@ -3,7 +3,7 @@ import './AddEmoji.css'
 
 function AddEmoji(props) {
     return (
-        <button className='button'onClick={() => props.addEmo(props.key)}>Plant an Emoji</button>
+        <button className='button'onClick={() => props.addEmo(props.id)}>Plant an Emoji</button>
     )
 }
 

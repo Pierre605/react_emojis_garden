@@ -11,8 +11,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             garden: [],
-            farm: [],
-            nb_garden: 1
+            farm: []
         }
     }
 
@@ -29,75 +28,74 @@ class App extends React.Component {
                         farm: [this.GenerateGarden(size_garden)]})
     }
 
-    addEmoji = (key) => {
-        console.log(key)
-        let items = this.state.garden
+    addEmoji = (idg) => {
+        console.log("cliqué")
+        console.log(idg)
+        let items = this.state.farm
         let depart = []
         for (let j = 0; j < this.state.garden.length; j++) {
-            if (this.state.garden[j]['valeur'] == null) {
+            if (items[idg][j].valeur == null) {
                 depart.push(j)
             }
         }
-        console.log(depart)
 
         if (depart.length > 0) {
-        let item = items[depart[0]].valeur
+        let item = items[idg][depart[0]].valeur
         item = '🌱'
-        items[depart[0]].valeur = item
-        this.setState({garden: items})
+        items[idg][depart[0]].valeur = item
+        this.setState({farm: items})
         }
 
         setTimeout(() => {
-            switch(items[depart[0]].valeur) {
-                case '🌱': let item = items[depart[0]].valeur
+            switch(items[idg][depart[0]].valeur) {
+                case '🌱': let item = items[idg][depart[0]].valeur
                             item = '🌿'
-                            items[depart[0]].valeur = item
-                            this.setState({garden: items})
+                            items[idg][depart[0]].valeur = item
+                            this.setState({farm: items})
             break;      
             }}, 2000)
     
 
         setTimeout(() => {
-            switch(items[depart[0]].valeur) {
-                case '🌿': let item2 = items[depart[0]].valeur
+            switch(items[idg][depart[0]].valeur) {
+                case '🌿': let item2 = items[idg][depart[0]].valeur
                             item2 = '🌳'
-                            items[depart[0]].valeur = item2
-                            this.setState({garden: items})
+                            items[idg][depart[0]].valeur = item2
+                            this.setState({farm: items})
                 break;
         }}, 4000)
-    
     }
     
 
-    RemoveEmoji = (id) => {
-        let items = this.state.garden
-        let item = this.state.garden[id].valeur
+    RemoveEmoji = (id, idg) => {
+        console.log(id, idg)
+        let items = this.state.farm
+        let item = items[idg][id].valeur
         item = null
-        items[id].valeur = item
-        this.setState({garden: items})
+        items[idg][id].valeur = item
+        this.setState({farm: items})
     }
 
     
-    addGarden = (event) => {
-        let nb_jardins = this.state.nb_garden
-        let nb = nb_jardins + 1
-        
+    addGarden = () => {
         let farm = this.state.farm
         farm.push(this.state.garden)
-        this.setState({ nb_garden: nb, farm: farm})
+        this.setState({farm: farm})
 
     }
 
     render() {
         return (  
             <>
+            <div className="aside">
             {this.state.farm.map((garden, i) => { 
                 return (
                     <div>
-                    <Garden key={i} jardin={this.state.farm[i]} delete={this.RemoveEmoji}/>
-                    <AddEmoji addEmo={this.addEmoji} key={i}/>
+                    <Garden id={i} jardin={garden} delete={this.RemoveEmoji}/>
+                    <AddEmoji id={i} addEmo={this.addEmoji}/>
                     </div>
                     )})}
+            </div>
             <div>
             <AddGardens addGarden={this.addGarden}/>
             </div>

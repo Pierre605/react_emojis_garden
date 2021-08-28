@@ -1,9 +1,10 @@
 import React from 'react'
+import './AddGardens.css'
 
 function AddGardens(props) {
     return (
         <div>
-        <button onClick={props.addGarden}>Add Garden</button>
+        <button className="button2" onClick={props.addGarden}>Add Garden</button>
         </div>
     )
 }

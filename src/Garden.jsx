@@ -6,10 +6,10 @@ function Garden(props) {
     return (
         <>
         <h2>My Emoji Garden</h2>
-        <div key={props.key} className="wrapper">
+        <div key={props.id} className="wrapper">
             {props.jardin.map((elem) => { 
                 return (
-                <div className="cell" id={elem.id} onClick={() => props.delete(elem.id)}>{elem.valeur}</div>
+                <div className="cell" id={elem.id} onClick={() => props.delete(elem.id, props.id)}>{elem.valeur}</div>
             )})}
         </div>
         </>
