@@ -1,6 +1,8 @@
 #root {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    margin-top: -1.2em;
 }
 
 .aside {

@@ -1,0 +1,12 @@
+.score {
+    padding: 0.5em;
+    border: 1px solid black;
+    width: 400px;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.score span {
+    margin: 0 20px;
+}
