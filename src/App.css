@@ -7,5 +7,11 @@
 
 .aside {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+    margin-bottom: 1em;
+}
+
+.aerer {
+    margin-bottom: 1em;
 }

@@ -14,7 +14,7 @@ class App extends React.Component {
         this.state = {
             farm: [],
             growthSpeed: 2000,
-            count: {count1: 0, count2: 0, count3: 0, count4: 0, count5: 0, count6: 0, count7: 0, count8: 0, count9: 0}
+            score: [{id: "human", state: false, val: 0, lay: "🙂: "}, {id: "sea", state: false, val: 0, lay: "🐟: "}, {id: "plant", state: true, val: 0, lay: "🌱: "}]
         }
     }
 
@@ -134,10 +134,22 @@ class App extends React.Component {
     }
 
     changeTheme = () => {
-        let counters = this.state.count
         let select = document.querySelector("select")
         let contain = document.getElementsByClassName("wrapper")
+        let score = this.state.score
         let items = this.state.farm
+
+        {for (let m = 0; m < score.length; m ++) {
+            if (select.value == score[m].id) {
+                score[m].state = true
+                this.setState({score: score})
+        }
+            else {
+                score[m].state = false
+                this.setState({score: score})
+            }
+        }}
+
         {for (let j = 0; j < items.length; j++) {
              for (let i = 0; i < 25; i++) {
             if (select.value === "human") {
@@ -147,12 +159,6 @@ class App extends React.Component {
                 this.setState({farm: items})
                 contain[j].childNodes[i].className=''
                 contain[j].childNodes[i].classList.add('cell2')
-                let countp = counters.count3
-                countp = 0
-                counters.count3 = countp
-                counters.count6 = countp
-                counters.count9 = countp
-                this.setState({count: counters})
             }
             if (select.value === "sea") {
                 let cell = items[j][i].valeur
@@ -161,12 +167,6 @@ class App extends React.Component {
                 this.setState({farm: items})
                 contain[j].childNodes[i].className=''
                 contain[j].childNodes[i].classList.add('cell3')
-                let countp = counters.count6
-                countp = 0
-                counters.count3 = countp
-                counters.count6 = countp
-                counters.count9 = countp
-                this.setState({count: counters})
             }
             if (select.value === "plant") {
                 let cell = items[j][i].valeur
@@ -175,12 +175,6 @@ class App extends React.Component {
                 this.setState({farm: items})
                 contain[j].childNodes[i].className=''
                 contain[j].childNodes[i].classList.add('cell')
-                let countp = counters.count9
-                countp = 0
-                counters.count3 = countp
-                counters.count6 = countp
-                counters.count9 = countp
-                this.setState({count: counters})
             }
         }
         }}
@@ -192,18 +186,17 @@ class App extends React.Component {
             let Ls = []
             let select = document.querySelector("select")
             let items = this.state.farm
-            let counters = this.state.count
+            let score1 = this.state.score
             {for (let j = 0; j < items.length; j++) {
              for (let i = 0; i < 25; i++) {
                 if (select.value === "human") {
                     if (items[j][i].valeur === '😶' || items[j][i].valeur === '🙂' || items[j][i].valeur === '🤠') { 
-                    Lh.push(items[j][i])
-                    let countp = counters.count3
-                    countp = Lh.length
-                    counters.count3 = countp
-                    this.setState({count: counters})
-                    console.log(this.state.count.count3)
-                    console.log(select.value)
+                        Lh.push(items[j][i])
+                        let countp = score1[0].val
+                        countp = Lh.length
+                        score1[0].val = countp
+                        this.setState({score: score1})
+                        console.log(select.value)
                 }
             }
                 // else if (items[j][i].valeur === '🙂') {
@@ -216,15 +209,16 @@ class App extends React.Component {
                 // }
             
 
-                else if (items[j][i].valeur === '🐟' || items[j][i].valeur === '🐬' || items[j][i].valeur === '🐋') {
-                Ls.push(items[j][i])
-                let countp = counters.count6
-                countp = Ls.length
-                counters.count6 = countp
-                this.setState({count: counters})
-                console.log(this.state.count.count6)
-                console.log(select.value)
+                else if (select.value === "sea") {
+                    if (items[j][i].valeur === '🐟' || items[j][i].valeur === '🐬' || items[j][i].valeur === '🐋') {
+                        Ls.push(items[j][i])
+                        let counts = score1[1].val
+                        counts = Ls.length
+                        score1[1].val = counts
+                        this.setState({score: score1})
+                        console.log(select.value)
                 }
+            }
                 // else if (items[j][i].valeur === '🐬') {
                 //     counters.count6 += 1
                 //     this.setState({count: counters})
@@ -235,15 +229,16 @@ class App extends React.Component {
                 // }
             
                 
-                else if (items[j][i].valeur === '🌳' || items[j][i].valeur === '🌿' || items[j][i].valeur === '🌱') {
-                Lp.push(items[j][i])
-                let countp = counters.count9
-                countp = Lp.length
-                counters.count9 = countp
-                this.setState({count: counters})
-                console.log(this.state.count.count9)
-                console.log(select.value)
+                else if (select.value === "plant") {
+                    if (items[j][i].valeur === '🌳' || items[j][i].valeur === '🌿' || items[j][i].valeur === '🌱') {
+                        Lp.push(items[j][i])
+                        let counta = score1[2].val
+                        counta = Lp.length
+                        score1[2].val = counta
+                        this.setState({score: score1})
+                        console.log(select.value)
                 }
+            }
                 // else if (items[j][i].valeur === '🌿') {
                 //     counters.count9 += 1
                 //     this.setState({count: counters})
@@ -264,11 +259,11 @@ class App extends React.Component {
             <>
             <h2>My Emoji Garden</h2>
             <Settings toggle={this.changeTheme} growth={this.setGrowthSpeed}/>
-            <Score scoreplant={this.state.count.count9} scoreh={this.state.count.count3} scoresea={this.state.count.count6}/>
+            <Score scorelayout={this.state.score}/>
             <div className="aside">
             {this.state.farm.map((garden, i) => { 
                 return (
-                    <div key={i}>
+                    <div className="aerer" key={i}>
                     <Garden id={i} jardin={garden} delete={this.RemoveEmoji}/>
                     <AddEmoji id={i} addEmo={this.addEmoji}/>
                     </div>

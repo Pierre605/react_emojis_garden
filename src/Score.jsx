@@ -3,7 +3,17 @@ import './Score.css'
 
 function Score(props) {
     return(
-        <div className="score">🌱: {props.scoreplant}<span></span> 🙂: {props.scoreh} <span></span>🐟: {props.scoresea}</div>
+        <>
+        {props.scorelayout.map((elem) => {
+            if (elem.state === true) {
+                return (
+                    <div className="score">{elem.lay} {elem.val}</div>
+                )
+            }
+            })
+        
+        }
+        </>
     )
 }
 
