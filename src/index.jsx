@@ -36,7 +36,6 @@ class App extends React.Component {
     }
 
     addEmoji = (idg) => {
-        console.log("cliqué")
         console.log(idg)
         let items = this.state.farm
         let depart = []
@@ -196,7 +195,6 @@ class App extends React.Component {
                         countp = Lh.length
                         score1[0].val = countp
                         this.setState({score: score1})
-                        console.log(select.value)
                 }
             }
                 // else if (items[j][i].valeur === '🙂') {
@@ -216,7 +214,6 @@ class App extends React.Component {
                         counts = Ls.length
                         score1[1].val = counts
                         this.setState({score: score1})
-                        console.log(select.value)
                 }
             }
                 // else if (items[j][i].valeur === '🐬') {
@@ -236,7 +233,6 @@ class App extends React.Component {
                         counta = Lp.length
                         score1[2].val = counta
                         this.setState({score: score1})
-                        console.log(select.value)
                 }
             }
                 // else if (items[j][i].valeur === '🌿') {
