@@ -1,0 +1,9 @@
+.button2 {
+    margin-top: 1em;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: rgb(22, 8, 146);
+}

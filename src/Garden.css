@@ -1,0 +1,34 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.cell {
+    border: 1px solid black;
+    background-color: rgb(131, 228, 131);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell2 {
+    border: 1px solid black;
+    background-color: rgb(191, 197, 191);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell3 {
+    border: 1px solid black;
+    background-color: rgb(41, 196, 207);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
