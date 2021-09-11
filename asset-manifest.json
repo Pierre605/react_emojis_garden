@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react_emojis_garden/static/css/main.1b14ba53.chunk.css",
+    "main.js": "/react_emojis_garden/static/js/main.29f07aab.chunk.js",
+    "main.js.map": "/react_emojis_garden/static/js/main.29f07aab.chunk.js.map",
+    "runtime~main.js": "/react_emojis_garden/static/js/runtime~main.91e733a5.js",
+    "runtime~main.js.map": "/react_emojis_garden/static/js/runtime~main.91e733a5.js.map",
+    "static/js/2.14f1dc44.chunk.js": "/react_emojis_garden/static/js/2.14f1dc44.chunk.js",
+    "static/js/2.14f1dc44.chunk.js.map": "/react_emojis_garden/static/js/2.14f1dc44.chunk.js.map",
+    "index.html": "/react_emojis_garden/index.html",
+    "precache-manifest.a72d0ab5aa3ec58847ef5995bc493d01.js": "/react_emojis_garden/precache-manifest.a72d0ab5aa3ec58847ef5995bc493d01.js",
+    "service-worker.js": "/react_emojis_garden/service-worker.js",
+    "static/css/main.1b14ba53.chunk.css.map": "/react_emojis_garden/static/css/main.1b14ba53.chunk.css.map"
+  }
+}
